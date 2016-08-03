@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {font-family: monospace;}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    display: inline-block;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+div.bin {
+    margin: 10px auto;
+    max-width: 400px;
+}
+</style>
+<body>
+
+<div class="bin">
+
+    <h1> What is your mood? </h1>
+  <ul class="tab">
+    <li><a href="#" class="tablinks" onclick="openMood(event, 'Calm')">Calm</a></li>
+    <li><a href="#" class="tablinks" onclick="openMood(event, 'Confident')">Confident</a></li>
+    <li><a href="#" class="tablinks" onclick="openMood(event, 'Creative')">Creative</a></li>
+  </ul>
+</div>
+
+<script>
+function openMood(evt, moodName) {
+    var i, tablinks;
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    evt.currentTarget.className += " active";
+    if(moodName === "Calm"){
+        document.body.style.backgroundColor = "#a6bddb";
+    };
+    if(moodName === "Confident"){
+        document.body.style.backgroundColor = "#fc9272";
+    };
+    if(moodName === "Creative"){
+        document.body.style.backgroundColor = "#addd8e";
+    };
+}
+</script>
+     
+</body>
+</html> 
+
