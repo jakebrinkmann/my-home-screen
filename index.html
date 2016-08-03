@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <style>
-body {font-family: "Lato", sans-serif;}
+body {font-family: monospace;}
 
 ul.tab {
     list-style-type: none;
@@ -10,6 +10,7 @@ ul.tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    display: inline-block;
 }
 
 /* Float the list items side by side */
@@ -36,52 +37,40 @@ ul.tab li a:focus, .active {
     background-color: #ccc;
 }
 
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+div.bin {
+    margin: 10px auto;
+    max-width: 400px;
 }
 </style>
 <body>
 
-<p>Click on the links inside the tabbed menu:</p>
+<div class="bin">
 
-<ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'London')">London</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris')">Paris</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</a></li>
-</ul>
-
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+    <h1> What is your mood? </h1>
+  <ul class="tab">
+    <li><a href="#" class="tablinks" onclick="openMood(event, 'Calm')">Calm</a></li>
+    <li><a href="#" class="tablinks" onclick="openMood(event, 'Confident')">Confident</a></li>
+    <li><a href="#" class="tablinks" onclick="openMood(event, 'Creative')">Creative</a></li>
+  </ul>
 </div>
 
 <script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+function openMood(evt, moodName) {
+    var i, tablinks;
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
+    if(moodName === "Calm"){
+        document.body.style.backgroundColor = "#a6bddb";
+    };
+    if(moodName === "Confident"){
+        document.body.style.backgroundColor = "#fc9272";
+    };
+    if(moodName === "Creative"){
+        document.body.style.backgroundColor = "#addd8e";
+    };
 }
 </script>
      
