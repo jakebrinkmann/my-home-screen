@@ -46,3 +46,7 @@ i.fa {
 i.fa:hover {
   text-shadow: 2px 2px 4px #000000;
 }
+
+div.bin a {
+  text-decoration: none;
+}
