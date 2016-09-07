@@ -50,3 +50,7 @@ i.fa:hover {
 div.bin a {
   text-decoration: none;
 }
+
+a:link, a:visited {
+  color: #FFF;
+}
